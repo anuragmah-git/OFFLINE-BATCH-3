@@ -1,0 +1,32 @@
+==========
+Phase-1
+==========
+# What is VCS. Why we need VCS.
+	VCS features.
+
+#
+GIT Installation (Ubuntu):
+$ sudo apt-get update
+$ sudo apt-get install git
+
+Verify Installation:   
+	which git
+	git --version
+
+
+GIT Uninstallation:
+$ sudo apt-get remove git
+
+
+#
+Git Architecture Diagram
+
+	------------------------------------------------------	
+	. (Souce area) | ..(Stage) | .git (Local Repository) |
+		       |           |			     |
+	------------------------------------------------------
+
+	- Centralized VCS -  Ex: CVS/SVN/Clearcase/Perforce
+	- Distributed VCS -  Ex: GIT/Bitkeeper
+
+
