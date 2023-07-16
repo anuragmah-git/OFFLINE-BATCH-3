@@ -93,5 +93,89 @@ sudo docker --version
 uninstall docker:
 $ sudo apt-get remove docker-ce
 
+=======
+DAY-2
+=======
+#
+Managing docker containers
+===============================
+#
+docker run command:
+- "docker run" command provides all lanuching capabilities for docker to create a container.
+- we use `docker run` to create new containers.
+
+
+# Creating first container
+
+sudo docker run -i -t or -it ubuntu /bin/bash
+
+	-i : opens STDIN from the container
+	-t : tells docker to assign a pseudo-tty to the
+		 container.
+	-it : provides interactive shell or terminal(it).
+	
+	`ubuntu`: is an image and also called as "stock image" or "base image".
+			  This will be downloaded by default from 'Docker hub' for the first
+			  time.
+	
+	/bin/bash: which shell need to be installed in the terminal (shell that run in the terminal)
+
+
+
+# Inspect the new container
+1.
+	# hostname -i (check ip address of created new container using this command)
+        # cd /  
+        # ls (newly created container have own root directory check using this command)
+   	# ps -ef (using this command we can check background process)
+ 
+2.      #cat /etc/hosts (newly created container got own hosts file check using this command)
+
+        What is etc/hosts file?
+        => etc/hosts file contains hostname details ex. root@2d51b0e393f6:/# so this is hostname (2d51b0e393f6)
+        => check hostname by using this command in newly created container (# hostname).
+
+3.      suppose if we want to change hostname of machine newly or any then do the following steps: 
+	# vim /etc/hosts (in this hosts file copy first line ex 127.0.0.1 localhost and paste in that below and rename the loclhost in the second line ex. 127.0.0.1 www.server1.com)
+	THEN
+	# vim /etc/hostname (rename the first line of this file give same name what we are given in the hosts file ex. www.server1.com)
+
+4.	# ifconfig (suppose if we want to check ifconfig command in container so run below command before ifconfig command)
+ 
+	# apt-get update
+	# apt-get install net-tools
+	THEN
+
+5.	# ifconfig
+		observe etho and lo network interfaces with 
+		ip address
+
+6.	# ps -ef
+
+
+#Check which shell we are using within container 
+-  echo $SHELL
+
+#What is SHELL?
+- Open a terminal and type anything in the terminal means it is just a text box so you can type anything and say ENTER and it says COMMAND not found means what, 
+  some program is running in this terminal so  this is not text box more than text box, some program is running that is called SHELL, What SHELL is bash. here bash SHELL is running, 
+  what bash SHELL is doing SHELL take the input from user means you, it will take the input to the kernel and kernel process that command and it will give you result, 
+  so the SHELL act as interface between user and operating system. for Example, pwd command so bash SHELL intrpret this command and it will take this to kernel 
+  and kernel process this request and send output to user, all is doing by SHELL, inside this one program is running ie bash SHELL, it is default by linux.
+- There are different types of Shell
+  1) bash
+  2) ksh
+  3) csh
+  4) sh 
+ so many different shells are present.
+   
+
+#
+Shotdown a container
+"exit" to stop the container
+
+# List all containers(stopped and running)
+	$ sudo docker ps -a
+
 
 
