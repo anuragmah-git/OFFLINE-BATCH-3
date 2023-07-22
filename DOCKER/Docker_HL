@@ -177,5 +177,119 @@ Shotdown a container
 # List all containers(stopped and running)
 	$ sudo docker ps -a
 
+# List running containers only
+	$ docker ps
+
+# ps command output shows
+	- Image name from which container is created
+	- ID - container can be identified using short UUID, longer UUID Or name.
+	- Status of the container (Up / Exited)
+	- Name
+
+
+# See longer UUID of the container 
+	$ docker ps -a --no-trunc -q"
+
+# show the last container which you have created(stopped/running)
+	$ sudo docker ps -l
+
+# Naming the container
+	$ docker run --name guru -it ubuntu /bin/bash
+
+# How to create multiple container in one command (creating container in background mode)
+        $ docker run -it -d --name <container-name> ubuntu /bin/bash
+        	-d is daemon mode, means container run in background mode, without -d you will get new terminal and with -d container create in background mode.
+
+Note:- sequence doesnt matter after run -d before -it or --name but after --name container name is compulsory 
+
+Note: Two containers can't have the same name.
+
+# Rename a container (rename exist container)
+	$ docker rename db-server3 db-server-name3
+
+# Deleting a container 
+	$ docker rm ID/name (If we want to remove container so first check container is in running condition or not by using docker ps -a command, because we can not remove running container,
+  				then use the below  command)
+
+#Deleting a container forcefully 
+	$ docker rm -f ID/name (If we want to remove container forcefully whatever it is in running condition or not)
+
+
+# Delete all containers at once.
+ 	$ docker rm `docker ps -a -q` (delete all container at once by using ids -q take ids of all container)
+
+#Showing docker container ids only
+	$ docker ps -a -q
+
+#docker info
+
+# Starting a stopped container
+	$ sudo docker start name/ID
+	$ sudo docker stop name/ID
+	$ sudo docker restart name/ID
+
+# Shortcut Keys
+	- push a running container in background mode.
+	# Ctrl + p + q
+
+	- short cut to 'exit' from the container.
+	# Ctrl + d 
+	
+
+# Attaching to a running container (login to container)
+	$ docker attach name/ID 
+	$ docker attach name/ID 
+	
+
+# List Stopped containers only
+	$ docker ps -a -f status=exited
+	   Where Status can be exited / running
+
+# Stopped containers
+	$ docker stop <container-name> (SIGTERM) 
+
+# Stopped containers forcefully
+	$ docker kill <container-name> (SIGKILL) 
+
+
+
+=>Setup SSH for the container
+	ssh username@172.17.0.2
+
+- Create an user and set up password
+$ useradd -m -d /home/grras -s /bin/bash grras
+$ passwd username
+
+- Install ssh server
+$ apt-get update
+$ apt-get install openssh-server
+
+- Start the server
+$ service ssh start (status/stop)
+	
+- Connect to the container using ssh
+$ ssh username@172.17.0.2
+
+=========
+DAY-3:
+=========
+	# Inspecting the container's processes from host machine
+	- docker top <container-name>
+
+
+# Stoping a container from 'host machine'
+	- docker stop <container-name>
+	- docker stop <container-id> (like that ee319cddd42e)(SIGTERM)
+	- docker kill <container-name> (SIGKILL)
+
+# Show last 4 containers (stopped/running)
+	- docker ps -n4
+
+# Pause containers
+	- $ docker pause <container-name or ids>
+
+# Un-pause containers
+	- $ docker unpause <container-name or ids>
+
 
 
