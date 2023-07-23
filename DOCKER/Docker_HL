@@ -292,4 +292,96 @@ DAY-3:
 	- $ docker unpause <container-name or ids>
 
 
+# Find More About The Container
+- docker inspect comamnd "interrogates" the container and returns the info like.. configuration info, names, commands, n/w configurations, stopped/running ..etc.
+	---------        -------------                                            ------------------  -----  --------  ------------------  ---------------	 
+	 Examples:
+	$ docker inspect <container-name or ids> 
+		Note :- This command shows info about container.
+
+	$ sudo docker inspect <container-name or ids> | grep IPAddress | tail -1 
+		Note :- This command shows IPAddress of the running container.(EX. "IPAddress": "172.17.0.2", If we want to remove special character then us e below command).
+
+==========================
+Run docker command without sudo.	
+------
+	1. Create the "docker" group
+		$ sudo groupadd docker
+
+	2. Add your user to this group
+		$ sudo usermod -aG docker swapnil
+
+	3. Logout and Login back so that your group membership
+	   is re-evaluated.
+
+	4. Check group existance:
+		$ sudo grep docker /etc/group
+
+	5. Delete the group
+		$ sudo groupdel docker
+		
+		
+# Find More About The Container
+- docker inspect comamnd "interrogates" the container and returns the info like.. configuration info, names, commands, n/w configurations, stopped/running ..etc.
+	---------        -------------                                            ------------------  -----  --------  ------------------  ---------------	 
+	 Examples:
+	$ docker inspect <container-name or ids> 
+		Note :- This command shows info about container.
+
+	$ sudo docker inspect <container-name or ids> | grep IPAddress | tail -1 
+		Note :- This command shows IPAddress of the running container.(EX. "IPAddress": "172.17.0.2", If we want to remove special character then us e below command).
+
+	
+	
+	$ sudo docker inspect <container-name or ids> -f '{{.NetworkSettings.Networks.bridge.IPAddress}}'
+		Note :- This is main command to show IPAddress of the running container.
+
+	$ sudo docker inspect --format '{{.Config.Hostname}}' <container-name>
+		Note :- If we want to see containers hostname then use above command.
+
+	
+	$ sudo docker inspect -f '{{.Name}}' `sudo docker ps -a -q`
+		Note :- This command shows only name of all containers.
+
+		
+
+
+- Remove all running containers
+		docker rm -f `docker ps -q`
+
+
+
+DAY-4:
+# Docker Images
+=================
+Agenda:
+	- Understand docker Image
+	- Create docker Image
+	- Store docker Image
+	- Share your own Image
+	- Examine repositories that hold images
+
+- Docker images are the building blocks for creating container.
+- From images, we launch containers.
+	
+# Listing docker images
+
+	$ sudo docker images
+		or
+	$ sudo docker image ls
+
+	$ sudo docker images -q 
+		Note :- It shows only ids.
+
+	$ sudo docker rmi `sudo docker images -q`
+		Note :- remove all images using this command.
+
+
+# Images are stored in First directory and Containers are stored in Second directory. 
+  ------               --------------      ----------
+1.) Images live in -  '/var/lib/docker/image/aufs/imagedb/content/sha256' --> This path is applicable on CENTOS7 OS only 
+                   -  /var/lib/docker/image/overlay2/imagedb/content/sha256 --> This path is applicable on UBUNTU OS only
+2.) Containers live in /var/lib/docker/containers
+
+
 
