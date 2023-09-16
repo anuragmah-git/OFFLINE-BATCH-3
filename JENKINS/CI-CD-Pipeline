@@ -1,0 +1,7 @@
+ - Developer commits code changes to GITHUB or BITBUCKET
+ - CI server detects changes and trigger build
+ - Code is complied and tested (unit, Junit and Integration testing)
+ - Test Results reported to Developer
+ - On Success of test results or reports, artifacts are deployed to staging environment (DEV, QA, UAT)
+ - Once testing has been done on all ENV, then will PUSH to JFrogg
+ - Contineous Deployment approved changes deploy to PROD.
