@@ -1,0 +1,46 @@
+create web app project mvn:generate flipkart
+push to github repo
+create github repo same as project
+src,pom.xml push repo also we are pusing into Dockerfile 
+----- clone the project and start compile and build .war file generate hoga
+src,pom.xml,dockerfile target(war file inside this target folder)
+ ADD target/flipkart.war /home/swapnil/documents/apache-tomcat/web-app 
+ 
+ 
+ repo name --- Nature1 Nature2 Nature3 Nature4 Nature5
+ 
+ 
+ create user using Dockerfile and create directory inside this user and add file Nature1/new-directory
+ 
+ CMD []
+ 
+ 
+ docker inspect jboss-eap | grep IPAddress | tail -1 | cut -d ':' -f2 | tr -d ' |,|"'
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' `docker ps -q`
+ 
+ 
+ 
+ 
+ 
+ 
+ docker inspect --format='{{.Name}}' $(docker ps -aq --no-trunc) | cut -c2-
+ 
+ 
+ 
+ 
+ 

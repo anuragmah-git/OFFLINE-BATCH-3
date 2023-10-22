@@ -180,7 +180,7 @@ $ cd sourceCode/
 
 # 
 After Create Maven web application project in our created directory usign below command.
-$ mvn archetype:generate -DgroupId=com.Netflix -DartifactId=Netflix -Dversion=1.0-SNAPSHOT -DinteractiveMode=false -DarchetypeArtifactId=maven-archetype-webapp
+$ mvn archetype:generate -DgroupId=com.CICD -DartifactId=CICD -Dversion=1.0-SNAPSHOT -DinteractiveMode=false -DarchetypeArtifactId=maven-archetype-webapp
       
 	=> archetype:generate - this is generating maven project.
         => DgroupId - this is package name. 

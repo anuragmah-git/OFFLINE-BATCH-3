@@ -306,7 +306,7 @@ Git merge command merges the changes from dev_1.2.3 to master.
 Verify the chages.
 	$ git merge dev_1.2.3
 
-# Abservce the changes from dev_1.2.3 into master branch.
+# observe the changes from dev_1.2.3 into master branch.
 
 # git push
 
